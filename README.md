@@ -6,7 +6,7 @@ SXSW Kiosk Slurper
 
 ```javascript
 {
- "username" : "my user name",
- "password" : "my password"
+ "username" : "your username",
+ "password" : "your password"
 }
 ```
