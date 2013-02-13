@@ -1,15 +1,11 @@
-import json, urllib2, base64
+import requests, json
 
 config = json.load(open('config.json'))
-print 'CONFIG', config
 username = config['username']
 password = config['password']
 
-request = urllib2.Request("https://event-svc-pvt.sxsw.com/goodattheinternet")
-base64string = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')
-request.add_header("Authorization", "Basic %s" % base64string)   
-response = urllib2.urlopen(request)
+r = requests.get('https://event-svc-pvt.sxsw.com/goodattheinternet/', auth=(username, password))
 
-data = json.load(response)
+data = json.loads(r.text)
 
 print 'DATA', data
